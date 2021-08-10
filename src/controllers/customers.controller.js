@@ -1,4 +1,9 @@
-export const createProduct = (req, res) => {}
+import Customer from '../models/customer.model'
+
+export const createProduct = (req, res) => {
+  res.json('creating product')
+  console.log('Hola')
+}
 
 export const getProducts = (req, res) => {}
 

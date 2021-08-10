@@ -1,5 +1,15 @@
 import {Schema, model} from 'mongoose'
 
-new Schema({
-
+const customerSchema = new Schema({
+  name: String,
+  surname: String,
+  photoUrl: String,
+  // created:
+  // author:
+  // modified:
+}, {
+  timestamps: true,
+  versionKey: false
 })
+
+export default model('Customer', customerSchema)
