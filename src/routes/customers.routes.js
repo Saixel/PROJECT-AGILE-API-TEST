@@ -3,10 +3,10 @@ const router = Router()
 
 import * as customersCtrl from '../controllers/customers.controller'
 
-router.post('/', customersCtrl.createProduct)
-router.get('/', customersCtrl.getProducts)
-router.get('/:customerId', customersCtrl.getProductById)
-router.put('/:customerId', customersCtrl.updateProductById)
-router.delete('/:customerId', customersCtrl.deleteProductById)
+router.post('/', customersCtrl.createCustomer)
+router.get('/', customersCtrl.getCustomers)
+router.get('/:customerId', customersCtrl.getCustomerById)
+router.put('/:customerId', customersCtrl.updateCustomerById)
+router.delete('/:customerId', customersCtrl.deleteCustomerById)
 
 export default router

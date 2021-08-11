@@ -4,9 +4,8 @@ const customerSchema = new Schema({
   name: String,
   surname: String,
   photoUrl: String,
-  // created:
-  // author:
-  // modified:
+  // createdBy:
+  // updatedBy:
 }, {
   timestamps: true,
   versionKey: false
