@@ -3,11 +3,14 @@ import morgan from 'morgan'
 import cors from 'cors'
 // import helmet from 'helmet'
 
+import { createRoles } from './libs/initialSetup'
+
 import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
 import customersRoutes from './routes/customers.routes'
 
 const app = express()
+createRoles()
 
 app.use(cors())
 // app.use(helmet())
