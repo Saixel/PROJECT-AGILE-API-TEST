@@ -12,7 +12,7 @@ export const checkDuplicateEmail = async (req, res, next) => {
   }
 }
 
-export const checkRolesExisted = (req, res, next) => {
+export const checkValidRoles = (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
       if (!ROLES.includes(req.body.roles[i])) {

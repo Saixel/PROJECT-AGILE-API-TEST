@@ -1,6 +1,6 @@
 import * as authJWT from './authJWT'
-import * as verifySignup from './verifySignup'
+import * as checkSignup from './checkSignup'
 import { validateBody } from './validator'
 
 
-export { authJWT, verifySignup, validateBody }
+export { authJWT, checkSignup, validateBody }

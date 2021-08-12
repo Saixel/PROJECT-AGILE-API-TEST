@@ -6,7 +6,7 @@ const customerSchema = new Schema(
     name: {
       type: String,
       minlength: 2,
-      maxlength: 15,
+      maxlength: 20,
       required: [true, 'Name is required'],
     },
     surname: {

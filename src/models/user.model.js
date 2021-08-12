@@ -11,8 +11,6 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      minlength: 3,
-      maxlength: 20,
       required: [true, 'Password is required'],
       select: false,
     },
@@ -25,12 +23,12 @@ const userSchema = new Schema(
     name: {
       type: String,
       minlength: 2,
-      maxlength: 15,
+      maxlength: 20,
     },
     surname: {
       type: String,
       minlength: 2,
-      maxlength: 15,
+      maxlength: 20,
     },
     phone: {
       type: String,

@@ -4,18 +4,12 @@ const router = Router()
 const { check } = require('express-validator')
 
 import * as authCtrl from '../controllers/auth.controller'
-import { verifySignup, validateBody, validateLogin } from '../middlewares'
-
-router.post(
-  '/signup',
-  verifySignup.checkDuplicateEmail,
-  verifySignup.checkRolesExisted,
-  authCtrl.signUp
-)
+import { checkSignup, validateBody } from '../middlewares'
 
 router.post(
   '/login',
-  check('email', 'mensaje de error').isEmail(),
+  check('email', 'Email is not valid').isEmail(),
+  check('password', 'Password is empty').not().isEmpty(),
   validateBody,
   authCtrl.login
 )
