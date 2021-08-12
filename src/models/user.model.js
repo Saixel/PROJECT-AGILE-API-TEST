@@ -3,15 +3,25 @@ import bcrypt from 'bcryptjs'
 
 const userSchema = new Schema(
   {
-    email: String,
-    password: String,
-    roles: [{
-      ref: "Role",
-      type: Schema.Types.ObjectId
-    }],
-    // name: String,
-    // surname: String,
-    // phone: String
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      select: false,
+    },
+    roles: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Role',
+      },
+    ],
+    name: String,
+    surname: String,
+    phone: String,
   },
   {
     timestamps: true,
@@ -27,6 +37,5 @@ userSchema.statics.encryptPassword = async (password) => {
 userSchema.statics.comparePassword = async (password, receivedPassword) => {
   return await bcrypt.compare(password, receivedPassword)
 }
-
 
 export default model('User', userSchema)

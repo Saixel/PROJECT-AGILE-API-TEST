@@ -4,7 +4,11 @@ export const ROLES = ['user', 'admin']
 
 const roleSchema = new Schema(
   {
-    name: String,
+    name: {
+      type: String,
+      unique: true,
+      required: true,
+    },
   },
   {
     versionKey: false,
