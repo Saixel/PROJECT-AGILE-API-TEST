@@ -4,15 +4,12 @@ var _mongoose = _interopRequireDefault(require("mongoose"));
 
 var _config = _interopRequireDefault(require("./config"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_mongoose["default"].connect(_config["default"].MONGODB_URL, {
+_mongoose.default.connect(_config.default.MONGO_URL, {
+  dbName: _config.default.MONGO_DB,
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useFindAndModify: false,
   useCreateIndex: true,
-  useFindAndModify: false
-}).then(function (db) {
-  return console.info('💾 Connected to Mongo Database \n');
-})["catch"](function (err) {
-  return console.error(err);
-});
+  useUnifiedTopology: true
+}).then(db => console.info('💾 Connected to Mongo Database \n')).catch(err => console.error(err));
