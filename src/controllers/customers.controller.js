@@ -90,7 +90,7 @@ export const deleteCustomer = async (req, res) => {
   try {
     const { customerId } = req.params
     await Customer.findByIdAndDelete(customerId)
-    res.status(204).json()
+    res.status(200).json({ message: 'User successfully deleted' })
   } catch (error) {
     res.status(500).json(error)
   }

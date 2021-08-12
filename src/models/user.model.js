@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import mongoosePaginate from 'mongoose-paginate'
 import bcrypt from 'bcryptjs'
 
 const userSchema = new Schema(
@@ -37,5 +38,7 @@ userSchema.statics.encryptPassword = async (password) => {
 userSchema.statics.comparePassword = async (password, receivedPassword) => {
   return await bcrypt.compare(password, receivedPassword)
 }
+
+userSchema.plugin(mongoosePaginate)
 
 export default model('User', userSchema)

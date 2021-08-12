@@ -8,6 +8,7 @@ router.post(
   '/',
   authJWT.verifyToken,
   authJWT.isAdmin,
+  verifySignup.checkDuplicateEmail,
   verifySignup.checkRolesExisted,
   userCtrl.createUser
 )

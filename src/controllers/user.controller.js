@@ -28,8 +28,13 @@ export const createUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   try {
-
-    res.status(200).json()
+    const { page, perPage } = req.query
+    const options = {
+      page: parseInt(page, 10) || 1,
+      limit: parseInt(perPage, 10) || 10,
+    }
+    const users = await User.paginate({}, options)
+    res.status(200).json(users)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -37,7 +42,9 @@ export const getUsers = async (req, res) => {
 
 export const getUserById = async (req, res) => {
   try {
-    res.status(200).json()
+    const { userId } = req.params
+    const user = await User.findById(userId).populate('roles')
+    res.status(200).json(user)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -45,7 +52,14 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    res.status(200).json()
+    const { userId } = req.params
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      req.body,
+      { new: true }
+    )
+    const userSaved = await updatedUser.save()
+    res.status(200).json(userSaved)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -61,7 +75,9 @@ export const updateUserRole = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    res.status(200).json()
+    const { userId } = req.params
+    await User.findByIdAndDelete(userId)
+    res.status(200).json({ message: 'User successfully deleted' })
   } catch (error) {
     res.status(500).json(error)
   }
