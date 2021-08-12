@@ -14,7 +14,12 @@ export const createCustomer = async (req, res) => {
 
 export const getCustomers = async (req, res) => {
   try {
-    const customers = await Customer.find()
+    const { page, perPage } = req.query
+    const options = {
+      page: parseInt(page, 10) || 1,
+      limit: parseInt(perPage, 10) || 10,
+    }
+    const customers = await Customer.paginate({}, options)
     res.status(200).json(customers)
   } catch (error) {
     res.status(500).json(error)

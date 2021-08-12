@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import mongoosePaginate from 'mongoose-paginate'
 
 const customerSchema = new Schema(
   {
@@ -19,5 +20,7 @@ const customerSchema = new Schema(
     versionKey: false,
   }
 )
+
+customerSchema.plugin(mongoosePaginate)
 
 export default model('Customer', customerSchema)
