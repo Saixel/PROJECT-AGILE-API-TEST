@@ -2,7 +2,8 @@ import { config } from 'dotenv'
 config()
 
 export default {
-  MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/agile-test',
   PORT: process.env.PORT || 3000,
-  SECRET: 'customers-api-secret',
+  SECRET: process.env.SECRET || 'customers-api-secret',
+  MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost',
+  MONGO_DB: process.env.MONGO_DB || 'agile-test',
 }
