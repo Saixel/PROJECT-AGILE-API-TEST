@@ -11,10 +11,10 @@ export const verifyToken = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.SECRET)
     req.userId = decoded.id
-    // Revisar también el rol
-    const user = await User.findById(req.userId, { password: 0 }) //.populate('roles')
-    res.locals.user = user
+
+    const user = await User.findById(req.userId).populate('roles')
     if (!user) return res.status(404).json({ message: 'No user found' })
+    res.locals.user = user
 
     next()
   } catch (error) {
@@ -24,8 +24,8 @@ export const verifyToken = async (req, res, next) => {
 
 export const isAdmin = async (req, res, next) => {
   try {
-    const user = await User.findById(req.userId)
-    const roles = await Role.find({ _id: { $in: user.roles } })
+    const user = res.locals.user
+    const roles = user.roles
 
     for (let i = 0; i < roles.length; i++) {
       if (roles[i].name === 'admin') {
