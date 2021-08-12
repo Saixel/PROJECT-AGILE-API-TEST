@@ -5,8 +5,14 @@ const customerSchema = new Schema(
     name: String,
     surname: String,
     photoUrl: String,
-    // createdBy:
-    // updatedBy:
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    updatedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
   },
   {
     timestamps: true,

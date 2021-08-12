@@ -4,6 +4,7 @@ export const createCustomer = async (req, res) => {
   try {
     const { name, surname, photoUrl } = req.body
     const newCustomer = new Customer({ name, surname, photoUrl })
+    newCustomer.createdBy = req.userId
     const customerSaved = await newCustomer.save()
     res.status(201).json(customerSaved)
   } catch (error) {
@@ -38,6 +39,7 @@ export const updateCustomer = async (req, res) => {
       req.body,
       { new: true }
     )
+    updatedCustomer.updatedBy = req.userId
     res.status(200).json(updatedCustomer)
   } catch (error) {
     res.status(500).json(error)
