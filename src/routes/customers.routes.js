@@ -10,6 +10,18 @@ router.get('/', authJWT.verifyToken, customersCtrl.getCustomers)
 
 router.get('/:customerId', authJWT.verifyToken, customersCtrl.getCustomerById)
 
+router.get(
+  '/creator/:creatorId',
+  authJWT.verifyToken,
+  customersCtrl.getCustomersByCreator
+)
+
+router.get(
+  '/updater/:updaterId',
+  authJWT.verifyToken,
+  customersCtrl.getCustomersByUpdater
+)
+
 router.put('/:customerId', authJWT.verifyToken, customersCtrl.updateCustomer)
 
 router.delete('/:customerId', authJWT.verifyToken, customersCtrl.deleteCustomer)
