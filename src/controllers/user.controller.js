@@ -68,9 +68,12 @@ export const updateUser = async (req, res) => {
 export const updateUserRole = async (req, res) => {
   try {
     const { userId } = req.params
-    const user = await User.findById(userId)
-    const userRole = await Role.findOne({ name: 'user' })
-    const adminRole = await Role.findOne({ name: 'admin' })
+
+    const [ user, userRole, adminRole ] = await Promise.all([
+      User.findById(userId),
+      Role.findOne({ name: 'user' }),
+      Role.findOne({ name: 'admin' }),
+    ])
 
     if (user.roles.includes(userRole._id)) user.roles = [adminRole._id]
     else user.roles = [userRole._id]

@@ -11,8 +11,9 @@ export const verifyToken = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.SECRET)
     req.userId = decoded.id
-
-    const user = await User.findById(req.userId, { password: 0 })
+    // Revisar también el rol
+    const user = await User.findById(req.userId, { password: 0 }) //.populate('roles')
+    res.locals.user = user
     if (!user) return res.status(404).json({ message: 'No user found' })
 
     next()

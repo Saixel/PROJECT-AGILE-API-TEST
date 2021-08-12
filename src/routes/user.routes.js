@@ -1,8 +1,10 @@
 import { Router } from 'express'
 const router = Router()
 
+const { check } = require('express-validator')
+
 import * as userCtrl from '../controllers/user.controller'
-import { authJWT, verifySignup } from '../middlewares'
+import { authJWT, verifySignup, validateBody } from '../middlewares'
 
 router.post(
   '/',
@@ -24,6 +26,8 @@ router.get(
 
 router.put(
   '/:userId',
+  check('userId', 'mensaje de error').isMongoId(),
+  validateBody,
   authJWT.verifyToken,
   authJWT.isAdmin,
   userCtrl.updateUser

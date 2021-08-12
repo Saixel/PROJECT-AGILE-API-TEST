@@ -6,6 +6,8 @@ const roleSchema = new Schema(
   {
     name: {
       type: String,
+      minlength: 3,
+      maxlength: 10,
       unique: true,
       required: true,
     },

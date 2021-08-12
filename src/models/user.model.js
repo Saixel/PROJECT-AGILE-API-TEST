@@ -11,6 +11,8 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
+      minlength: 3,
+      maxlength: 20,
       required: [true, 'Password is required'],
       select: false,
     },
@@ -20,9 +22,21 @@ const userSchema = new Schema(
         ref: 'Role',
       },
     ],
-    name: String,
-    surname: String,
-    phone: String,
+    name: {
+      type: String,
+      minlength: 2,
+      maxlength: 15,
+    },
+    surname: {
+      type: String,
+      minlength: 2,
+      maxlength: 15,
+    },
+    phone: {
+      type: String,
+      minlength: 5,
+      maxlength: 15,
+    },
   },
   {
     timestamps: true,

@@ -58,7 +58,6 @@ export const getCustomersByUpdater = async (req, res) => {
   try {
     const { page, perPage } = req.query
     const { updaterId } = req.params
-    console.log()
     const options = {
       page: parseInt(page, 10) || 1,
       limit: parseInt(perPage, 10) || 10,
