@@ -67,7 +67,16 @@ export const updateUser = async (req, res) => {
 
 export const updateUserRole = async (req, res) => {
   try {
-    res.status(200).json()
+    const { userId } = req.params
+    const user = await User.findById(userId)
+    const userRole = await Role.findOne({ name: 'user' })
+    const adminRole = await Role.findOne({ name: 'admin' })
+
+    if (user.roles.includes(userRole._id)) user.roles = [adminRole._id]
+    else user.roles = [userRole._id]
+
+    const userSaved = await user.save()
+    res.status(200).json(userSaved)
   } catch (error) {
     res.status(500).json(error)
   }
