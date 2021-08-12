@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _mongoose = require("mongoose");
 
 var _mongoosePaginate = _interopRequireDefault(require("mongoose-paginate"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var customerSchema = new _mongoose.Schema({
   name: {
@@ -26,7 +26,7 @@ var customerSchema = new _mongoose.Schema({
   },
   photoUrl: {
     type: String,
-    "default": 'https://i.ibb.co/86wZYF1/avatardefault-92824.png',
+    default: 'https://i.ibb.co/86wZYF1/avatardefault-92824.png',
     required: [true, 'Photo url is required']
   },
   createdBy: {
@@ -41,8 +41,8 @@ var customerSchema = new _mongoose.Schema({
   timestamps: true,
   versionKey: false
 });
-customerSchema.plugin(_mongoosePaginate["default"]);
+customerSchema.plugin(_mongoosePaginate.default);
 
 var _default = (0, _mongoose.model)('Customer', customerSchema);
 
-exports["default"] = _default;
+exports.default = _default;

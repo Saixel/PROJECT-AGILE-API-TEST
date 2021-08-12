@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.ROLES = void 0;
+exports.default = exports.ROLES = void 0;
 
 var _mongoose = require("mongoose");
 
@@ -23,4 +23,4 @@ var roleSchema = new _mongoose.Schema({
 
 var _default = (0, _mongoose.model)('Role', roleSchema);
 
-exports["default"] = _default;
+exports.default = _default;
