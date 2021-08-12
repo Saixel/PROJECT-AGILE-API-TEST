@@ -8,5 +8,5 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then((db) => console.log('DB is connected'))
+  .then((db) => console.info('💾 Connected to Mongo Database \n'))
   .catch((err) => console.error(err))

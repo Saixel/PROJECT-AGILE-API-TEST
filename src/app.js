@@ -7,10 +7,11 @@ import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
 import customersRoutes from './routes/customers.routes'
 
-import { createRoles } from './libs/initialSetup'
+import { createRoles, createAdmin } from './libs/initialSetup'
 
 const app = express()
 createRoles()
+createAdmin()
 
 // Settings
 app.set('port', process.env.PORT || 3000)
