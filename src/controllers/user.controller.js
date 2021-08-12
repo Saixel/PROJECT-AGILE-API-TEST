@@ -25,3 +25,44 @@ export const createUser = async (req, res) => {
     res.status(500).json(error)
   }
 }
+
+export const getUsers = async (req, res) => {
+  try {
+
+    res.status(200).json()
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+export const getUserById = async (req, res) => {
+  try {
+    res.status(200).json()
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+export const updateUser = async (req, res) => {
+  try {
+    res.status(200).json()
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+export const updateUserRole = async (req, res) => {
+  try {
+    res.status(200).json()
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+export const deleteUser = async (req, res) => {
+  try {
+    res.status(200).json()
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
