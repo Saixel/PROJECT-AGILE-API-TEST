@@ -1,8 +1,8 @@
-[![Contributors][contributors-shield]][contributors-url] &nbsp; &nbsp; &nbsp;
-[![Stargazers][stars-shield]][stars-url] &nbsp; &nbsp; &nbsp;
-[![Forks][forks-shield]][forks-url] &nbsp; &nbsp; &nbsp;
-[![Issues][issues-shield]][issues-url] &nbsp; &nbsp; &nbsp;
-[![MIT License][license-shield]][license-url] &nbsp; &nbsp; &nbsp;
+[![Contributors][contributors-shield]][contributors-url] &nbsp;
+[![Stargazers][stars-shield]][stars-url] &nbsp;
+[![Forks][forks-shield]][forks-url] &nbsp;
+[![Issues][issues-shield]][issues-url] &nbsp;
+[![MIT License][license-shield]][license-url] &nbsp;
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
